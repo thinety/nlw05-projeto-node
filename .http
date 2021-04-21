@@ -1,4 +1,4 @@
-### Settings
+### Create Setting
 POST http://localhost:3333/settings HTTP/1.1
 Content-Type: application/json
 
@@ -6,3 +6,33 @@ Content-Type: application/json
   "chat": true,
   "username": "admin"
 }
+
+### Create User
+POST http://localhost:3333/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com"
+}
+
+### User sending message
+POST http://localhost:3333/messages HTTP/1.1
+Content-Type: application/json
+
+{
+  "text": "Olá, eu preciso de ajuda!",
+  "user_id": "72819e87-0e79-43c2-a1bf-82f52892692f"
+}
+
+### Admin sending message
+POST http://localhost:3333/messages HTTP/1.1
+Content-Type: application/json
+
+{
+  "text": "Olá, tudo bem? O que está acontencendo?",
+  "admin_id": "21807b60-056c-4ad9-8107-342bcea73260",
+  "user_id": "72819e87-0e79-43c2-a1bf-82f52892692f"
+}
+
+### List messages by user
+GET http://localhost:3333/messages/72819e87-0e79-43c2-a1bf-82f52892692f HTTP/1.1
