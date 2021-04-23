@@ -7,6 +7,17 @@ Content-Type: application/json
   "username": "admin"
 }
 
+### Get Setting
+GET http://localhost:3333/settings/admin HTTP/1.1
+
+### Update Setting
+PUT http://localhost:3333/settings/admin HTTP/1.1
+Content-Type: application/json
+
+{
+  "chat": true
+}
+
 ### Create User
 POST http://localhost:3333/users HTTP/1.1
 Content-Type: application/json
