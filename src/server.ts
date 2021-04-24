@@ -1,8 +1,14 @@
-import { http } from './http';
-import './websocket/admin';
-import './websocket/client';
+import { createServer } from 'http';
+
+import { app } from './http';
+import { io } from './ws';
+
+import './database';
 
 
-http.listen(3333, () => {
+const server = createServer(app);
+io.attach(server);
+
+server.listen(3333, () => {
   console.log('Server is running on port 3333');
 });
